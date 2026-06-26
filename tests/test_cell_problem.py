@@ -70,6 +70,19 @@ def test_cell_density_deleter():
     assert cell.atom_density is None
 
 
+def test_cell_is_mass_dens():
+    cell = Cell("1 1 0.5 2")
+    cell.mass_density = 1.5
+    assert not cell.is_atom_dens
+    assert cell.is_mass_dens
+    cell.atom_density = 1.6
+    assert cell.is_atom_dens
+    assert not cell.is_mass_dens
+    # a cell with no density set has both undefined (issue #964)
+    assert Cell().is_atom_dens is None
+    assert Cell().is_mass_dens is None
+
+
 def test_cell_sorting():
     in_str = "1 1 0.5 2"
     cell1 = Cell(in_str)

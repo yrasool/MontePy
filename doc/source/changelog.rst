@@ -12,6 +12,10 @@ MontePy Changelog
 #Next Version#
 --------------
 
+**Feature Added**
+
+* Added the ``Cell.is_mass_dens`` property, the complement of ``is_atom_dens``, for more readable density checks (:issue:`964`).
+
 **Bugs Fixed**
 
 * Fixed bug where values for user generated objects would be rounded off at five digits no matter what. This will now round off at 15 digits if necessary (:issue:`962`).
